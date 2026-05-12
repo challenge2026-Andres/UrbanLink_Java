@@ -4,9 +4,8 @@ public class UsuarioPremium extends Usuario {
     private int limiteResgatesMensais;
     private int resgatesRealizadosMes;
 
-    public UsuarioPremium(String id, String nome, String email, String cpf,
-                          double multiplicadorBonus, int limiteResgatesMensais) {
-        super(id, nome, email, cpf); // chama construtor da superclasse
+    public UsuarioPremium(String id, String nome, String email, String cpf, double multiplicadorBonus, int limiteResgatesMensais) {
+        super(id, nome, email, cpf);
         this.multiplicadorBonus = multiplicadorBonus;
         this.limiteResgatesMensais = limiteResgatesMensais;
         this.resgatesRealizadosMes = 0;
@@ -37,7 +36,7 @@ public class UsuarioPremium extends Usuario {
 
     @Override
     public void exibirPerfil() {
-        super.exibirPerfil(); // chama o método da superclasse
+        super.exibirPerfil();
         System.out.println("Tipo   : PREMIUM");
         System.out.println("Bônus  : x" + multiplicadorBonus);
         System.out.println("Resgates no mês: " + resgatesRealizadosMes + "/" + limiteResgatesMensais);

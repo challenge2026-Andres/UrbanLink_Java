@@ -39,7 +39,7 @@ public class Usuario {
     }
 
 
-    public boolean deduzirPontos(double pontos) {
+    public boolean reduzirPontos(double pontos) {
         if (pontos <= 0) {
             System.out.println("[!] Valor de pontos inválido para deduzir.");
             return false;

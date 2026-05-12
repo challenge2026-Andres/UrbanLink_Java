@@ -7,8 +7,7 @@ public class TransportePublico {
     private double co2EvitadoPorUso;
     private boolean integrado;
 
-    public TransportePublico(String id, String nome, String modalidade,
-                             double tarifaBase, double co2EvitadoPorUso) {
+    public TransportePublico(String id, String nome, String modalidade, double tarifaBase, double co2EvitadoPorUso) {
         this.id = id;
         this.nome = nome;
         this.modalidade = modalidade;
@@ -43,7 +42,7 @@ public class TransportePublico {
             return -1;
         }
         double valorCoberto = tarifaBase * (percentualCobertura / 100.0);
-        return valorCoberto * 10; 
+        return valorCoberto * 10;
     }
 
     public void exibirInfo() {
