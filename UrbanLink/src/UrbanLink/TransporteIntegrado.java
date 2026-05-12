@@ -1,3 +1,4 @@
+package UrbanLink;
 public class TransporteIntegrado extends TransportePublico {
 
     private String sistemaBilhetagem;
@@ -28,6 +29,10 @@ public class TransporteIntegrado extends TransportePublico {
         this.totalViagensProcessadas++;
     }
 
+    
+    // o mesmo que disse na classe TransportePublico, ficaria ate mais simples, por puxar as info da classe super
+    // esse override exibe so as informacoes especificas e num pega as genericas de TransportePublico
+    // (Deixei um comentario de como ficaria la em baixo)
     @Override
     public void exibirInfo() {
         super.exibirInfo();
@@ -40,4 +45,12 @@ public class TransporteIntegrado extends TransportePublico {
     public String toString() {
         return "TransporteIntegrado{nome='" + getNome() + "', sistema='" + sistemaBilhetagem + "'}";
     }
+    
+//    @Override
+//    public String toString() {
+//        return super.toString() + "\n"
+//             + "Sistema    : " + this.sistemaBilhetagem + "\n"
+//             + "Viagens    : " + this.totalViagensProcessadas + "\n"
+//             + "Voucher    : " + (this.aceitaVoucher ? "Aceito" : "Não aceito");
+//    }
 }

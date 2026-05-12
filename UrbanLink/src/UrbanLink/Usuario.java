@@ -1,3 +1,4 @@
+package UrbanLink;
 public class Usuario {
 
     private String id;
@@ -53,6 +54,8 @@ public class Usuario {
         }
     }
 
+    
+    // mesma coisa que comentei no TransportePublico e TransporteIntegrado
     public void exibirPerfil() {
         System.out.println("=== PERFIL DO USUÁRIO ===");
         System.out.println("ID     : " + id);
@@ -66,4 +69,14 @@ public class Usuario {
     public String toString() {
         return "Usuario{id='" + id + "', nome='" + nome + "', pontos=" + saldoPontos + "}";
     }
+    
+//    @Override
+//    public String toString() {
+//        return "=== PERFIL DO USUÁRIO ===\n"
+//             + "ID     : " + this.id + "\n"
+//             + "Nome   : " + this.nome + "\n"
+//             + "Email  : " + this.email + "\n"
+//             + "CPF    : " + this.cpf + "\n"
+//             + "Pontos : " + this.saldoPontos;
+//    }
 }

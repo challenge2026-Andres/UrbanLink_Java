@@ -1,3 +1,4 @@
+package UrbanLink;
 public class UsuarioPremium extends Usuario {
 
     private double multiplicadorBonus;
@@ -33,7 +34,9 @@ public class UsuarioPremium extends Usuario {
     public void registrarResgate() {
         resgatesRealizadosMes++;
     }
-
+    
+    
+    // mesmo dos outros comentarios
     @Override
     public void exibirPerfil() {
         super.exibirPerfil();
@@ -46,4 +49,12 @@ public class UsuarioPremium extends Usuario {
     public String toString() {
         return "UsuarioPremium{nome='" + getNome() + "', bonus=x" + multiplicadorBonus + "}";
     }
+    
+//    @Override
+//    public String toString() {
+//        return super.toString() + "\n"
+//             + "Tipo   : PREMIUM\n"
+//             + "Bônus  : x" + this.multiplicadorBonus + "\n"
+//             + "Resgates no mês: " + this.resgatesRealizadosMes + "/" + this.limiteResgatesMensais;
+//    }
 }

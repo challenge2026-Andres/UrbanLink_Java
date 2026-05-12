@@ -1,3 +1,4 @@
+package UrbanLink;
 public class TransportePublico {
 
     private String id;
@@ -44,7 +45,10 @@ public class TransportePublico {
         double valorCoberto = tarifaBase * (percentualCobertura / 100.0);
         return valorCoberto * 10;
     }
-
+    
+    
+    // e se mostrasse essas info no proprio metodo toString ao inves de ter 2 metodos fazendo algo parecido?
+    // (Deixei um comentario de como ficaria la em baixo)
     public void exibirInfo() {
         System.out.println("=== TRANSPORTE PÚBLICO ===");
         System.out.println("ID         : " + id);
@@ -59,4 +63,20 @@ public class TransportePublico {
     public String toString() {
         return "TransportePublico{nome='" + nome + "', tarifa=R$" + tarifaBase + "}";
     }
+    
+    
+//    @Override
+//    public String toString() {
+//        return "=== TRANSPORTE PÚBLICO ===\n"
+//             + "ID         : " + this.id + "\n"
+//             + "Nome       : " + this.nome + "\n"
+//             + "Modalidade : " + this.modalidade + "\n"
+//             + "Tarifa     : R$ " + String.format("%.2f", this.tarifaBase) + "\n"
+//             + "CO₂ evitado: " + this.co2EvitadoPorUso + " kg/uso\n"
+//             + "Integrado  : " + (this.integrado ? "Sim" : "Não");
+//    }
+    
+    
+    
+    
 }
