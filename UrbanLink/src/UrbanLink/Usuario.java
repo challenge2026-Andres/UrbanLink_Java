@@ -15,30 +15,54 @@ public class Usuario {
         this.saldoPontos = 0.0;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getNome() {
+        return nome;
+    }
 
-    public String getCpf() { return cpf; }
-    public void setCpf(String cpf) { this.cpf = cpf; }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public double getSaldoPontos() { return saldoPontos; }
-    public void setSaldoPontos(double saldoPontos) { this.saldoPontos = saldoPontos; }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public double getSaldoPontos() {
+        return saldoPontos;
+    }
+
+    public void setSaldoPontos(double saldoPontos) {
+        this.saldoPontos = saldoPontos;
+    }
 
     public void adicionarPontos(double pontos) {
         if (pontos > 0) {
             this.saldoPontos += pontos;
-            System.out.println("[+] " + nome + " recebeu " + pontos + " pontos. Saldo atual: " + saldoPontos);
+            System.out.println("+ " + nome + " recebeu " + pontos + " pontos. Saldo atual: " + saldoPontos);
         } else {
-            System.out.println("[!] Valor de pontos inválido para adicionar.");
+            System.out.println("! Valor de pontos inválido para adicionar.");
         }
     }
-
 
     public boolean reduzirPontos(double pontos) {
         if (pontos <= 0) {
@@ -54,29 +78,13 @@ public class Usuario {
         }
     }
 
-    
-    // mesma coisa que comentei no TransportePublico e TransporteIntegrado
-    public void exibirPerfil() {
-        System.out.println("=== PERFIL DO USUÁRIO ===");
-        System.out.println("ID     : " + id);
-        System.out.println("Nome   : " + nome);
-        System.out.println("Email  : " + email);
-        System.out.println("CPF    : " + cpf);
-        System.out.println("Pontos : " + saldoPontos);
-    }
-
     @Override
     public String toString() {
-        return "Usuario{id='" + id + "', nome='" + nome + "', pontos=" + saldoPontos + "}";
+        return "=== PERFIL DO USUÁRIO ===\n"
+                + "ID     : " + this.id + "\n"
+                + "Nome   : " + this.nome + "\n"
+                + "Email  : " + this.email + "\n"
+                + "CPF    : " + this.cpf + "\n"
+                + "Pontos : " + this.saldoPontos;
     }
-    
-//    @Override
-//    public String toString() {
-//        return "=== PERFIL DO USUÁRIO ===\n"
-//             + "ID     : " + this.id + "\n"
-//             + "Nome   : " + this.nome + "\n"
-//             + "Email  : " + this.email + "\n"
-//             + "CPF    : " + this.cpf + "\n"
-//             + "Pontos : " + this.saldoPontos;
-//    }
 }
