@@ -12,17 +12,23 @@ public class UsuarioPremium extends Usuario {
         this.resgatesRealizadosMes = 0;
     }
 
-    public double getMultiplicadorBonus() { return multiplicadorBonus; }
+    public double getMultiplicadorBonus() {
+        return multiplicadorBonus;
+    }
     public void setMultiplicadorBonus(double multiplicadorBonus) {
         this.multiplicadorBonus = multiplicadorBonus;
     }
 
-    public int getLimiteResgatesMensais() { return limiteResgatesMensais; }
+    public int getLimiteResgatesMensais() {
+        return limiteResgatesMensais;
+    }
     public void setLimiteResgatesMensais(int limiteResgatesMensais) {
         this.limiteResgatesMensais = limiteResgatesMensais;
     }
 
-    public int getResgatesRealizadosMes() { return resgatesRealizadosMes; }
+    public int getResgatesRealizadosMes() {
+        return resgatesRealizadosMes;
+    }
     public void setResgatesRealizadosMes(int resgatesRealizadosMes) {
         this.resgatesRealizadosMes = resgatesRealizadosMes;
     }
@@ -34,27 +40,13 @@ public class UsuarioPremium extends Usuario {
     public void registrarResgate() {
         resgatesRealizadosMes++;
     }
-    
-    
-    // mesmo dos outros comentarios
-    @Override
-    public void exibirPerfil() {
-        super.exibirPerfil();
-        System.out.println("Tipo   : PREMIUM");
-        System.out.println("Bônus  : x" + multiplicadorBonus);
-        System.out.println("Resgates no mês: " + resgatesRealizadosMes + "/" + limiteResgatesMensais);
-    }
+
 
     @Override
     public String toString() {
-        return "UsuarioPremium{nome='" + getNome() + "', bonus=x" + multiplicadorBonus + "}";
+        return super.toString() + "\n"
+                + "Tipo   : PREMIUM\n"
+                + "Bônus  : x" + this.multiplicadorBonus + "\n"
+                + "Resgates no mês: " + this.resgatesRealizadosMes + "/" + this.limiteResgatesMensais;
     }
-    
-//    @Override
-//    public String toString() {
-//        return super.toString() + "\n"
-//             + "Tipo   : PREMIUM\n"
-//             + "Bônus  : x" + this.multiplicadorBonus + "\n"
-//             + "Resgates no mês: " + this.resgatesRealizadosMes + "/" + this.limiteResgatesMensais;
-//    }
 }
