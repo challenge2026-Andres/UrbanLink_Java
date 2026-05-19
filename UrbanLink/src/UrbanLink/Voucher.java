@@ -108,7 +108,7 @@ public class Voucher {
     @Override
     public String toString() {
         return "==============================\n"
-                + "      VOUCHER SOULUP        \n"
+                + "      VOUCHER URBANLINK        \n"
                 + "==============================\n"
                 + "Codigo  : " + this.codigo + "\n"
                 + "Credito : R$ " + String.format("%.2f", this.valorCredito) + "\n"
