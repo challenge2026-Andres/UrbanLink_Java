@@ -1,4 +1,7 @@
-package UrbanLink;
+package service;
+
+import model.*;
+
 public class UrbanLinkService {
 
     // Taxa base: 10 pontos = R$ 1,00

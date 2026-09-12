@@ -1,4 +1,4 @@
-package UrbanLink;
+package model;
 public class Usuario {
 
     private String id;
@@ -6,6 +6,8 @@ public class Usuario {
     private String email;
     private String cpf;
     private double saldoPontos;
+
+    public Usuario(){}
 
     public Usuario(String id, String nome, String email, String cpf) {
         this.id = id;

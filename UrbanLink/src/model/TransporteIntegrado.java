@@ -1,4 +1,5 @@
-package UrbanLink;
+package model;
+
 public class TransporteIntegrado extends TransportePublico {
 
     private String sistemaBilhetagem;

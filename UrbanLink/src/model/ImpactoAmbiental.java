@@ -1,4 +1,4 @@
-package UrbanLink;
+package model;
 public class ImpactoAmbiental {
 
     private String usuarioId;

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ojdbc10-19.32.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/UrbanLink/lib/ojdbc10-19.32.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
