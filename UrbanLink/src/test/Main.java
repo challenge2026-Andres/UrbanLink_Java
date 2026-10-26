@@ -1,4 +1,10 @@
-package UrbanLink;
+package test;
+
+import model.*;
+import service.UrbanLinkService;
+import dao.*;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -11,23 +17,22 @@ public class Main {
 		System.out.println("║               URBAN LINK                 ║");
 		System.out.println("║  Pontos que movem você e o planeta       ║");
 		System.out.println("╚══════════════════════════════════════════╝\n");
-		
-		// Usuários 
+
+		// Usuários[cite: 15]
 		Usuario usuario1 = new Usuario("USR-001", "Ana Souza", "ana@email.com", "123.456.789-00");
 		Usuario usuario2 = new Usuario("USR-002", "Carlos Lima", "carlos@email.com", "987.654.321-11");
 
-		// UsuarioPremium multiplicador 1.5x, até 10 resgates/mês
+		// UsuarioPremium multiplicador 1.5x, até 10 resgates/mês[cite: 15]
 		UsuarioPremium usuarioPremium = new UsuarioPremium(
 				"USR-003", "Beatriz Santos", "bia@email.com", "111.222.333-44",
 				1.5, 10
 		);
 
-		// Transportes Públicos 
+		// Transportes Públicos[cite: 15]
 		TransportePublico metroBH = new TransportePublico(
 				"TRP-001", "Metrô BH", "Metrô", 4.50, 2.1
 		);
 
-		// TransporteIntegrado herda de TransportePublico
 		TransporteIntegrado metroSP = new TransporteIntegrado(
 				"TRP-002", "Metro SP", "Metro", 5.00, 2.5, "CartaoSP"
 		);
@@ -35,10 +40,7 @@ public class Main {
 				"TRP-003", "BRT Rio", "Onibus BRT", 4.05, 1.8, "RioCard"
 		);
 
-		// Serviço principal
 		UrbanLinkService service = new UrbanLinkService(50);
-
-		// ImpactoAmbiental
 		ImpactoAmbiental impactoManual = new ImpactoAmbiental("USR-999");
 
 		System.out.println("Distribuindo pontos iniciais...\n");
@@ -49,70 +51,43 @@ public class Main {
 		usuario1.setEmail("ana.souza@soulup.com");
 		System.out.println("Email atualizado de Ana: " + usuario1.getEmail());
 
-		// toString() sobrescrito
 		System.out.println("\n>>> Exibindo perfis :\n");
 		System.out.println(usuario1);
 		System.out.println();
 		System.out.println(usuarioPremium);
 
-		// polimorfismo
-		System.out.println("\n>>> Exibindo transportes (POLIMORFISMO — toString sobrescrito):\n");
+		System.out.println("\n>>> Exibindo transportes:\n");
 		System.out.println(metroBH);
 		System.out.println();
 		System.out.println(metroSP);
 
-
-		// pontos em vouchers
 		System.out.println("\nConvertendo pontos em vouchers de transporte...\n");
 
-		// usuario1: 100% da tarifa do Metrô SP
-		Voucher v1 = service.converterPontosEmVoucher(usuario1, metroSP, 100.0, "2025-05-12");
-		if (v1 != null) {
-			System.out.println(v1);
-			service.validarAntifraude(v1, usuario1);
-			v1.utilizarVoucher();
-		}
-
-		// usuario2: 50% da tarifa do BRT Rio
 		Voucher v2 = service.converterPontosEmVoucher(usuario2, brtRio, 50.0, "2025-05-12");
 		if (v2 != null) {
 			System.out.println(v2);
 		}
 
-		// usuarioPremium: 100% com bônus premium aplicado
 		Voucher v3 = service.converterPontosEmVoucher(usuarioPremium, metroSP, 100.0, "2025-05-12");
 		if (v3 != null) {
 			System.out.println(v3);
 			service.validarAntifraude(v3, usuarioPremium);
 		}
 
-		// Tentativa com saldo insuficiente
 		System.out.println("\n Tentativa com saldo insuficiente:");
 		service.converterPontosEmVoucher(usuario2, metroSP, 100.0, "2025-05-12");
 
-		// listar vouchers
 		service.listarVouchers();
 
-		// voucher manual
-		System.out.println("\n Testando StatusVoucher :");
-		Voucher voucherManual = new Voucher("SUP-9999", "USR-001", "TRP-002",
-				4.50, 45.0, "2025-05-12");
-		System.out.println(voucherManual);
-		voucherManual.setStatus(Voucher.StatusVoucher.EXPIRADO);
-		System.out.println("Status alterado para: " + voucherManual.getStatus());
-		voucherManual.utilizarVoucher(); // deve falhar
-
-		// impacto ambiental manual
 		System.out.println("\n Demonstrando ImpactoAmbiental diretamente:");
 		impactoManual.registrarViagem(2.5, 50.0);
 		impactoManual.registrarViagem(2.5, 50.0);
 		impactoManual.registrarViagem(1.8, 40.5);
 		System.out.println(impactoManual);
 
-		// relatorio global
 		service.exibirRelatorioImpactoGlobal();
 
-		// Menu interativo
+		// Menu interativo[cite: 15]
 		System.out.println("\n Iniciando menu interativo...\n");
 		int opcao;
 
@@ -125,6 +100,7 @@ public class Main {
 			System.out.println("║ 3. Buscar voucher por código     ║");
 			System.out.println("║ 4. Listar todos os vouchers      ║");
 			System.out.println("║ 5. Ver relatório de impacto      ║");
+			System.out.println("║ 6. Testar Integração com Banco   ║"); // NOVA OPÇÃO DA SPRINT 3
 			System.out.println("║ 0. Sair                          ║");
 			System.out.println("╚══════════════════════════════════╝");
 			System.out.print("Escolha uma opção: ");
@@ -202,6 +178,31 @@ public class Main {
 
 			} else if (opcao == 5) {
 				service.exibirRelatorioImpactoGlobal();
+
+			} else if (opcao == 6) { // AQUI ENTRA A VALIDAÇÃO DO CRUD DA SPRINT 3
+				System.out.println("\n--- TESTANDO INTEGRAÇÃO COM BANCO (DAO) ---");
+				UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+				// CREATE
+				System.out.println("Inserindo o Usuario1 no Banco...");
+				usuarioDAO.inserir(usuario1);
+
+				// READ
+				System.out.println("Lendo Usuários do Banco:");
+				List<Usuario> listaBanco = usuarioDAO.listar();
+				for (Usuario u : listaBanco) {
+					System.out.println("ID: " + u.getId() + " | Nome: " + u.getNome() + " | Saldo: " + u.getSaldoPontos());
+				}
+
+				// UPDATE
+				System.out.println("Atualizando nome do Usuario1...");
+				usuario1.setNome("Ana Souza Atualizada");
+				usuarioDAO.atualizar(usuario1);
+
+				// DELETE
+				System.out.println("Deletando o Usuario1...");
+				usuarioDAO.excluir(usuario1.getId());
+				System.out.println("Teste CRUD finalizado.\n");
 
 			} else if (opcao == 0) {
 				System.out.println("\n✓ Encerrando UrbanLink...");

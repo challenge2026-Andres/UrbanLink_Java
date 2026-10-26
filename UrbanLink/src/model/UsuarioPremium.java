@@ -1,4 +1,5 @@
-package UrbanLink;
+package model;
+
 public class UsuarioPremium extends Usuario {
 
     private double multiplicadorBonus;
